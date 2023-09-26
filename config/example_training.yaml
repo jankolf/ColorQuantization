@@ -1,0 +1,40 @@
+seed: 1337
+output: path/to/out/folder
+
+trainset: mxnet
+train_root: path/to/rec_idx/folder
+num_classes: 85742
+
+val_targets: [lfw, agedb, cfp_ff]
+val_root: path/to/bin/folder
+
+qfunc: uniform
+num_colors: 128
+
+epochs: 10
+qepoch: 5  # number of epochs before quantization of backbone
+finetune_epoch: 7  # number of epochs before qparams are frozen
+wq: 8  # weight bits
+aq: 8  # activation bits
+
+lr: 0.001
+lr_func: step
+batch_size: 128
+bw_step: 1  # number of batches to accumulate loss
+weight_decay: 0.0004
+momentum: 0.9
+shuffle: False
+
+criterion: crossentropy
+header: none
+m: 0.5
+s: 64.0
+std: 0.05
+
+network: iresnet50
+embedding_size: 512
+SE: False  # only for iresnet
+
+log_freq: 50  # in batches
+cp_freq: 1  # in epochs
+val_freq: 1  # in epochs

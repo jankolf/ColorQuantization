@@ -1,0 +1,4 @@
+# model checkpoint should be a file created by torch.save(model.state_dict(), 'path/to/model/cp').
+# So checkpoints from training can not be used for evaluation without extracting the state_dict first!
+
+model_id: [model_arch, path/to/model/cp, weight_bits, act_bits]
